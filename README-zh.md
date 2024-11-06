@@ -1,27 +1,80 @@
-# Dotfiles Backup and Restore
+# 配置文件备份工具
 
+[English](README.md)
 
+一个简单的 Linux 应用程序配置文件备份和恢复工具，专为 Sway WM 及相关工具设计。
 
-This repository contains scripts for backing up and restoring personal configuration files (dotfiles) and font settings on a Linux system.
+## 目录结构
 
-## Features
+```
+.
+├── assets/
+│   ├── backup/          # 最新的配置备份
+│   └── bak_hist/        # 历史备份存档
+├── bin/
+│   ├── backup_config.sh # 备份脚本
+│   └── restore_backup.sh # 恢复脚本
+├── libs/
+│   └── log.sh          # 日志工具
+└── scripts/
+    └── config_list.sh  # 配置路径定义
+```
 
-- Backs up and restores user-specific configuration files
-- Handles font configurations and caches
-- Supports Git repositories within configuration directories
-- Manages system-level font configurations (requires sudo privileges)
+## 支持的配置
 
-## Components
+- Alacritty
+- Fontconfig
+- Kitty
+- Sway
+  - 主配置
+  - 外观设置
+  - 快捷键
+  - 显示器配置
+  - 窗口规则
+  - 自定义脚本
+- Swaylock
+- Waybar
+  - 配置
+  - 自定义脚本
+  - 样式
 
-1. `config_list.sh`: Defines the list of configurations to backup and restore
-2. `backup_config.sh`: Script for creating backups
-3. `restore_config.sh`: Script for restoring backups
+## 前提条件
 
-## Usage
+- Linux 系统
+- Bash shell
+- 需要备份的配置文件应位于默认位置 `~/.config/`
 
-### Backup
+## 使用方法
 
-To create a backup of your configurations:
+### 备份
+
+执行以下命令备份配置：
 
 ```bash
-./backup_config.sh
+./bin/backup_config.sh
+```
+
+这将：
+- 在 `assets/backup/` 创建备份
+- 将现有备份移动到 `assets/bak_hist/` 并添加时间戳
+
+### 恢复
+
+执行以下命令恢复配置：
+
+```bash
+./bin/restore_backup.sh
+```
+
+这将：
+- 从 `assets/backup/` 恢复配置到原始位置
+- 如果需要，创建父目录
+
+## 添加新配置
+
+1. 编辑 `scripts/config_list.sh`
+2. 添加配置目录的路径
+
+## 许可证
+
+[MIT License](LICENSE)
