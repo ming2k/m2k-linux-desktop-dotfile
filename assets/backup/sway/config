@@ -4,8 +4,8 @@
 
 input type:keyboard {
     xkb_layout "us"
-    # xkb_variant "colemak_dh"
-    repeat_delay 320
+    # xkb_variant "colemak_dh" 
+    repeat_delay 300 
     repeat_rate 80
     xkb_numlock enabled
     #xkb_options caps:super,super:caps
@@ -55,13 +55,9 @@ bar {
 ########
 # Exec #
 ########
-
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-
-exec dunst
-
+exec mako
 exec ~/.config/sway/scripts/swayidle.sh
-
-exec fcitx5 -d -r
+# exec fcitx5 -d -r
 # exec copyq --start-server
 

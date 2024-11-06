@@ -12,18 +12,23 @@
     "tooltip": false,
     "all-outputs": false,
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": ""
+      "1": "壹",
+      "2": "貳",
+      "3": "叁",
+      "4": "肆",
+      "5": "伍",
+      "6": "陸",
+      "7": "柒",
+      "8": "捌",
+      "9": "玖",
+      "0": "零"
     },
     "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
+      //"1": [],
+      //"2": [],
+      //"3": [],
+      //"4": [],
+      //"5": []
     }
   },
   "sway/mode": {
@@ -40,7 +45,8 @@
   "clock": {
     "interval": 1,
     "format": "<span font_size='11pt'>{:%H:%M:%S}</span>",
-    "format-alt": "<span font_size='10pt'>{:%A, %B %d, %Y %R}</span>"
+    //"format-alt": "<span font_size='10pt'>{:%A, %B %d, %Y %R}</span>",
+    "tooltip-format": "{:%A, %B %d, %Y}"
   },
   "idle_inhibitor": {
     "format": "<span color='#b4befe'>{icon}</span>",
@@ -59,7 +65,7 @@
     "device": "intel_backlight",
     "format": "<span color='#b4befe'>󰖨</span> <span font_size='10pt'>{percent}%</span>",
     "scroll-step": 1,
-    "tooltip-format": false
+    "tooltip": false
   },
   "wireplumber": {
     "format": "<span color='#b4befe'>󰕾</span> <span font_size='10pt'>{volume}%</span>",

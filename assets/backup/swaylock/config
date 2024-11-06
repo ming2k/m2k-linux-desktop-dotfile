@@ -36,26 +36,12 @@ indicator-caps-lock
 scaling=fill
 # image=/path/to/your/background/image.png
 
-# 性能优化
-fade-in=0.2
-grace=2
-grace-no-mouse
-grace-no-touch
-
 # 调试选项（如果遇到问题，可以启用这些选项来获取更多信息）
 # debug
 # verbose
 
 # 键盘布局（如果您使用非标准键盘布局）
 # keyboard-layout=us
-
-# 日期和时间显示（可选）
-datestr=%Y-%m-%d
-timestr=%H:%M:%S
-
-# 字体设置
-font=sans-serif
-font-size=24
 
 # 禁用 PAM 认证（如果遇到 PAM 问题，可以尝试启用此选项）
 # disable-caps-lock-text
