@@ -17,7 +17,7 @@ restore_configs() {
     for config in "${CONFIGS[@]}"; do
         config_name=$(basename "$config")
         source_dir="${BACKUP_DIR}/${config_name}"
-        target_dir="$config"
+        target_dir="$HOME/.config/"
 
         if [ ! -d "$source_dir" ]; then
             log "error" "No backup found for $config_name"

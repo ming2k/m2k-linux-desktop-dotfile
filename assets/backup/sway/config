@@ -40,10 +40,9 @@ focus_follows_mouse no
 focus_on_window_activation smart
 focus_wrapping yes
 
-# include /home/ming/.config/sway/config.d/monitor.conf
 include /home/ming/.config/sway/config.d/appearance.conf
-# include /home/ming/.config/sway/config.d/monitor_ext.conf
 include /home/ming/.config/sway/config.d/monitor.conf
+# include /home/ming/.config/sway/config.d/monitor_ext.conf
 include /home/ming/.config/sway/config.d/workspace_rule.conf
 include /home/ming/.config/sway/config.d/window_rule.conf
 include /home/ming/.config/sway/config.d/keybind.conf
