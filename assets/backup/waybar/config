@@ -1,0 +1,107 @@
+// vim: filetype=jsonc:
+// `format` use pango markup language
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 2,
+  "modules-left": [ "sway/workspaces", "sway/mode", "sway/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "backlight", "wireplumber", "bluetooth", "network", "battery", "idle_inhibitor"],
+  "sway/workspaces": {
+    "format": "<span font_size='10pt'>{icon}</span>",
+    "tooltip": false,
+    "all-outputs": false,
+    "format-icons": {
+      "1": "壹",
+      "2": "貳",
+      "3": "叁",
+      "4": "肆",
+      "5": "伍",
+      "6": "陸",
+      "7": "柒",
+      "8": "捌",
+      "9": "玖",
+      "0": "零"
+    },
+    "persistent-workspaces": {
+      //"1": [],
+      //"2": [],
+      //"3": [],
+      //"4": [],
+      //"5": []
+    }
+  },
+  "sway/mode": {
+    "format": "<span color='#7aa2f7'>󰭩</span> <span font_size='10pt'>{}</span>", // Icon: expand-arrows-alt
+    "tooltip": false
+  },
+  "sway/window": {
+    "format": "<span font_size='10pt'>{}</span>",
+    "icon": true,
+    "icon-size": 16,
+    "max-length": 24,
+    "rewrite" : {}
+  },
+  "clock": {
+    "interval": 1,
+    "format": "<span font_size='11pt'>{:%H:%M:%S}</span>",
+    //"format-alt": "<span font_size='10pt'>{:%A, %B %d, %Y %R}</span>",
+    "tooltip-format": "{:%A, %B %d, %Y}"
+  },
+  "idle_inhibitor": {
+    "format": "<span color='#7aa2f7'>{icon}</span>",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾫"
+    },
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 8,
+    "reverse-direction": true
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span color='#7aa2f7'>󰖨</span> <span font_size='10pt'>{percent}%</span>",
+    "scroll-step": 1,
+    "tooltip": false
+  },
+  "wireplumber": {
+    "format": "<span color='#7aa2f7'>󰕾</span> <span font_size='10pt'>{volume}%</span>",
+    "format-muted": "<span color='#7aa2f7'>󰖁</span>",
+    "scroll-step": 1,
+    "on-click": "~/.config/waybar/scripts/toggle_mute_master.sh",
+    "tooltip-format": "{node_name}"
+  },
+  "bluetooth": {
+    "format": "<span color='#7aa2f7'></span> <span font_size='10pt'>{status}</span>",
+    "format-connected": "<span color='#7aa2f7'>󰂱</span>",
+    "format-connected-battery": "<span color='#7aa2f7'>󰥉</span> <span font_size='10pt'>{device_battery_percentage}%</span>",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\tBatt.{device_battery_percentage}%"
+  },
+  "network": {
+    "interface": "wlan0",
+    "max-length": 20,
+    "format": "<span color='#7aa2f7'>󰛵</span> <span font_size='10pt'>{ifname}</span>",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-wifi": "<span color='#7aa2f7'>󰖩</span> <span font_size='10pt'>{essid}</span>",
+    "format-ethernet": "<span color='#7aa2f7'>󰌘</span> <span font_size='10pt'>{ipaddr}/{cidr}</span>",
+    "format-disconnected": "<span color='#7aa2f7'>󰌙</span> <span font_size='10pt'>Disconnected</span>",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signaldBm} dBm)\t{ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected"
+    //"tooltip": false
+  },
+  "battery": {
+    "interval": 1,
+    "format": "<span color='#7aa2f7'>{icon}</span> <span font_size='10pt'>{capacity}%</span>",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-plugged": "<span color='#7aa2f7'>󰚥</span> <span font_size='10pt'>{capacity}%</span>",
+    "format-charging": "<span color='#7aa2f7'></span> <span font_size='10pt'>{capacity}%</span>",
+    "tooltip": false
+  }
+}

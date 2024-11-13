@@ -1,0 +1,62 @@
+# Read `man 5 sway` for a complete reference.
+
+# input * {}
+
+input type:keyboard {
+    xkb_layout "us"
+    # xkb_variant "colemak_dh" 
+    repeat_delay 300 
+    repeat_rate 80
+    xkb_numlock enabled
+    #xkb_options caps:super,super:caps
+}
+
+# input type:mouse {}
+
+input type:touchpad {
+    # scroll_factor 0.5
+    natural_scroll enabled
+    # tap disabled
+    tap enabled
+}
+
+output * {
+    adaptive_sync on
+    subpixel rgb
+}
+
+# seat seat0 xcursor_theme Bibata-Modern-Ice 24
+seat seat0 xcursor_theme Adwaita 24
+
+####################
+# Windows Behavior #
+####################
+
+# Use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
+
+# Focus behavior
+focus_follows_mouse no
+focus_on_window_activation smart
+focus_wrapping yes
+
+include /home/ming/.config/sway/config.d/appearance.conf
+include /home/ming/.config/sway/config.d/monitor.conf
+# include /home/ming/.config/sway/config.d/monitor_ext.conf
+include /home/ming/.config/sway/config.d/workspace_rule.conf
+include /home/ming/.config/sway/config.d/window_rule.conf
+include /home/ming/.config/sway/config.d/keybind.conf
+
+bar {
+    swaybar_command waybar
+}
+
+########
+# Exec #
+########
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec mako
+exec ~/.config/sway/scripts/swayidle.sh
+exec fcitx5 -d -r
+# exec copyq --start-server
+

@@ -1,0 +1,75 @@
+# Default backup storage location
+backup_root = "assets/backup"
+
+# Window Managers & Desktop Environment
+[configs.sway]
+source = "$HOME/.config/sway"
+backup = "sway"
+desc = "Sway window manager configuration"
+enabled = true
+
+[configs.waybar]
+source = "$HOME/.config/waybar"
+backup = "waybar"
+desc = "Waybar status bar configuration"
+enabled = true
+
+[configs.swaylock]
+source = "$HOME/.config/swaylock"
+backup = "swaylock"
+desc = "Screen locker configuration"
+enabled = true
+
+# Terminals
+[configs.kitty]
+source = "$HOME/.config/kitty"
+backup = "kitty"
+desc = "Kitty terminal configuration"
+enabled = true
+
+[configs.alacritty]
+source = "$HOME/.config/alacritty"
+backup = "alacritty"
+desc = "Alacritty terminal configuration"
+enabled = true
+
+# System Configuration
+[configs.fontconfig]
+source = "$HOME/.config/fontconfig"
+backup = "fontconfig"
+desc = "Font configuration"
+enabled = true
+
+# Development Tools
+[configs.nvim]
+source = "$HOME/.config/nvim"
+backup = "nvim"
+desc = "Neovim editor configuration"
+enabled = true
+
+# Input Methods
+[configs.fcitx5]
+source = "$HOME/.config/fcitx5"
+backup = "fcitx5"
+desc = "Fcitx5 input method configuration"
+enabled = true
+
+# Applications
+[configs.rofi]
+source = "$HOME/.config/rofi"
+backup = "rofi"
+desc = "Rofi application launcher configuration"
+enabled = true
+
+[configs.mpv]
+source = "$HOME/.config/mpv"
+backup = "mpv"
+desc = "MPV media player configuration"
+enabled = true
+
+# System Utilities
+[configs.dunst]
+source = "$HOME/.config/dunst"
+backup = "dunst"
+desc = "Dunst notification daemon configuration"
+enabled = true
