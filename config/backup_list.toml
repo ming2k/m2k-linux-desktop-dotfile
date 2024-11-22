@@ -14,6 +14,12 @@ backup = "waybar"
 desc = "Waybar status bar configuration"
 enabled = true
 
+[configs.mako]
+source = "$HOME/.config/mako"
+backup = "mako"
+desc = "Notification"
+enabled = true
+
 [configs.swaylock]
 source = "$HOME/.config/swaylock"
 backup = "swaylock"
@@ -75,13 +81,6 @@ enabled = true
 source = "$HOME/.config/nvim"
 backup = "nvim"
 desc = "Neovim editor configuration"
-enabled = true
-
-# Input Methods
-[configs.fcitx5]
-source = "$HOME/.config/fcitx5"
-backup = "fcitx5"
-desc = "Fcitx5 input method configuration"
 enabled = true
 
 # Applications
