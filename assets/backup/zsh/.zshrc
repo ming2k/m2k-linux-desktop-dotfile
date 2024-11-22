@@ -10,13 +10,11 @@ if [[ ! -d ~/.zsh/zsh-syntax-highlighting ]]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 fi
 
-if [[ ! -d ~/.zsh/zsh-autosuggestions ]]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
-fi
-
 if [[ ! -d ~/.zsh/zsh-completions ]]; then
     git clone https://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
 fi
+# Add zsh-completions to fpath
+fpath=(~/.zsh/zsh-completions/src $fpath)
 
 # Completion system initialization
 autoload -Uz compinit
@@ -24,7 +22,6 @@ compinit
 
 # Enhanced completion styles
 zstyle ':completion:*' menu select # enable completion menu
-
 
 # Aliases
 alias firefox='firefox-bin'
@@ -48,18 +45,8 @@ export GPG_TTY=$(tty)
 # Load syntax highlighting (must be at the end)
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Load autosuggestions (must be at the end)
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-
-# Add zsh-completions to fpath
-fpath=(~/.zsh/zsh-completions/src $fpath)
-
-# Autosuggestions configuration
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
 source ~/.zsh/_mixins/common.zsh
+source ~/.zsh/_mixins/autosuggest.zsh
 source ~/.zsh/_mixins/fzf.zsh
 source ~/.zsh/_mixins/nnn.zsh
+

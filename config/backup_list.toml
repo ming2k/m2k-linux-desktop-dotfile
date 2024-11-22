@@ -39,6 +39,18 @@ backup = "tmux"
 desc = ""
 enabled = true
 
+[configs.bash_dir]
+source = "$HOME/.bash/_mixins"
+backup = "bash/.bash/_mixins"
+desc = ""
+enabled = true
+
+[configs.bashrc]
+source = "$HOME/.bashrc"
+backup = "bash/.bashrc"
+desc = ""
+enabled = true
+
 [configs.zsh_dir]
 source = "$HOME/.zsh/_mixins"
 backup = "zsh/.zsh/_mixins"

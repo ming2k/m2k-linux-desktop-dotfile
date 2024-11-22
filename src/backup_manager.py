@@ -68,7 +68,8 @@ class BackupManager:
         """
         try:
             if source.is_dir():
-                shutil.copytree(source, target, dirs_exist_ok=True)
+                # For directories, use copytree with dirs_exist_ok=False since we've moved old backup
+                shutil.copytree(source, target, dirs_exist_ok=False)
             else:
                 ensure_dir(target.parent)
                 shutil.copy2(source, target)
@@ -78,9 +79,32 @@ class BackupManager:
             logger.error(f"Failed to backup {name}: {e}")
             return False
     
+    def _clean_backup_directory(self) -> bool:
+        """
+        Clean the backup directory by moving all existing backups to history.
+        
+        Returns:
+            bool: True if cleaning was successful
+        """
+        logger.info("Moving existing backups to history...")
+        success = True
+        
+        try:
+            # Get all items in backup directory
+            for item in self.backup_root.iterdir():
+                if item.is_file() or item.is_dir():
+                    name = item.name
+                    if not self._backup_to_history(item, name):
+                        success = False
+            return success
+        except Exception as e:
+            logger.error(f"Failed to clean backup directory: {e}")
+            return False
+    
     def backup(self, dry_run: bool = False) -> bool:
         """
         Perform backup operation for all enabled configs.
+        First moves all existing backups to history, then creates new backups.
         
         Args:
             dry_run: If True, only log what would be done without making changes
@@ -91,8 +115,15 @@ class BackupManager:
         logger.info("=== Starting configuration backup ===")
         if dry_run:
             logger.info("DRY RUN - No changes will be made")
-        
+            
         success = True
+        
+        # First, move all existing backups to history
+        if not dry_run:
+            if not self._clean_backup_directory():
+                success = False
+        
+        # Then create new backups
         for name, source, target in self.config.get_backup_pairs():
             source_path = Path(source)
             target_path = Path(target)
@@ -106,14 +137,8 @@ class BackupManager:
             
             if dry_run:
                 continue
-            
-            # 如果存在旧的备份，移动到历史目录
-            if target_path.exists():
-                if not self._backup_to_history(target_path, name):
-                    success = False
-                    continue
-            
-            # 创建新的备份
+                
+            # Create new backup (no need to check for existing backup since we cleaned the directory)
             if not self._create_backup(source_path, target_path, name):
                 success = False
                 continue
