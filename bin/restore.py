@@ -6,7 +6,7 @@ from pathlib import Path
 # Add project root to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.restore import RestoreManager
+from src.restore_manager import RestoreManager
 from src.config import Config
 from src.utils.logger import setup_logger
 

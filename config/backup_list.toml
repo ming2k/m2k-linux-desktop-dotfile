@@ -33,6 +33,24 @@ backup = "alacritty"
 desc = "Alacritty terminal configuration"
 enabled = true
 
+[configs.tmux]
+source = "$HOME/.config/tmux"
+backup = "tmux"
+desc = ""
+enabled = true
+
+[configs.zsh_dir]
+source = "$HOME/.zsh/_mixins"
+backup = "zsh/.zsh/_mixins"
+desc = ""
+enabled = true
+
+[configs.zshrc]
+source = "$HOME/.zshrc"
+backup = "zsh/.zshrc"
+desc = ""
+enabled = true
+
 # System Configuration
 [configs.fontconfig]
 source = "$HOME/.config/fontconfig"

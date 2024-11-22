@@ -18,8 +18,7 @@
 # I put the file alacritty.toml in $HOME/.config/alacritty. However it can be kept anywhere among the places mentioned in
 # https://github.com/alacritty/alacritty/tree/master#configuration
 
-[shell]
-
+[terminal.shell]
 program = "/usr/bin/tmux"
 args = ["new-session", "-A", "-s", "main"]
 
@@ -72,7 +71,6 @@ size = 11
 key = "F"
 mods = "Control|Shift"
 action = "None"
-
 
 # Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
 # Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 

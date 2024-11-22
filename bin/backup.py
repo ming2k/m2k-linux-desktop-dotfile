@@ -7,7 +7,7 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from src.backup import BackupManager
+from src.backup_manager import BackupManager
 from src.config import Config
 from src.utils.logger import setup_logger
 
