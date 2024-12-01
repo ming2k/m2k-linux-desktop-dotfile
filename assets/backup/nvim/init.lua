@@ -2,5 +2,6 @@ require("logger")
 require("utils")
 
 require("general")
+require("statusline")
 require("filetype")
-require("plugin_boot")
+require("lazy_nvim")

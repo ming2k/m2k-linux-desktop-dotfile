@@ -19,9 +19,14 @@ fpath=(~/.zsh/zsh-completions/src $fpath)
 # Completion system initialization
 autoload -Uz compinit
 compinit
-
 # Enhanced completion styles
 zstyle ':completion:*' menu select # enable completion menu
+
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%b'
+setopt PROMPT_SUBST
+PROMPT='%~ ${vcs_info_msg_0_} $ '
 
 # Aliases
 alias firefox='firefox-bin'
@@ -45,8 +50,8 @@ export GPG_TTY=$(tty)
 # Load syntax highlighting (must be at the end)
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source ~/.zsh/_mixins/common.zsh
-source ~/.zsh/_mixins/autosuggest.zsh
-source ~/.zsh/_mixins/fzf.zsh
-source ~/.zsh/_mixins/nnn.zsh
+# source ~/.zsh/_mixins/common.zsh
+# source ~/.zsh/_mixins/autosuggest.zsh
+# source ~/.zsh/_mixins/fzf.zsh
+# source ~/.zsh/_mixins/nnn.zsh
 

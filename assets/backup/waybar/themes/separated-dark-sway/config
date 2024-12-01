@@ -4,8 +4,6 @@
   "layer": "top",
   "position": "top",
   "margin-top": 2,
-  "margin-right": 4,
-  "margin-left": 4,
   "modules-left": [ "sway/workspaces", "sway/mode", "sway/window"],
   "modules-center": ["clock"],
   "modules-right": ["tray", "backlight", "wireplumber", "bluetooth", "network", "battery", "idle_inhibitor"],
@@ -34,7 +32,7 @@
     }
   },
   "sway/mode": {
-    "format": "󰭩 <span font_size='10pt'>{}</span>",
+    "format": "<span color='#7aa2f7'>󰭩</span> <span font_size='10pt'>{}</span>", // Icon: expand-arrows-alt
     "tooltip": false
   },
   "sway/window": {
@@ -47,10 +45,11 @@
   "clock": {
     "interval": 1,
     "format": "<span font_size='11pt'>{:%H:%M:%S}</span>",
+    //"format-alt": "<span font_size='10pt'>{:%A, %B %d, %Y %R}</span>",
     "tooltip-format": "{:%A, %B %d, %Y}"
   },
   "idle_inhibitor": {
-    "format": "{icon}",
+    "format": "<span color='#7aa2f7'>{icon}</span>",
     "format-icons": {
       "activated": "󰅶",
       "deactivated": "󰾫"
@@ -64,33 +63,34 @@
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "󰖨 <span font_size='10pt'>{percent}%</span>",
+    "format": "<span color='#7aa2f7'>󰖨</span> <span font_size='10pt'>{percent}%</span>",
     "scroll-step": 1,
     "tooltip": false
   },
   "wireplumber": {
-    "format": "󰕾 <span font_size='10pt'>{volume}%</span>",
-    "format-muted": "󰖁",
+    "format": "<span color='#7aa2f7'>󰕾</span> <span font_size='10pt'>{volume}%</span>",
+    "format-muted": "<span color='#7aa2f7'>󰖁</span>",
     "scroll-step": 1,
     "on-click": "~/.config/waybar/scripts/toggle_mute_master.sh",
     "tooltip-format": "{node_name}"
   },
   "bluetooth": {
-    "format": " <span font_size='10pt'>{status}</span>",
-    "format-connected": "󰂱",
-    "format-connected-battery": "󰥉 <span font_size='10pt'>{device_battery_percentage}%</span>",
+    "format": "<span color='#7aa2f7'></span> <span font_size='10pt'>{status}</span>",
+    "format-connected": "<span color='#7aa2f7'>󰂱</span>",
+    "format-connected-battery": "<span color='#7aa2f7'>󰥉</span> <span font_size='10pt'>{device_battery_percentage}%</span>",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\tBatt.{device_battery_percentage}%"
   },
   "network": {
-    "format": "󰛵 <span font_size='10pt'>{ifname}</span>",
-    "format-wifi": "󰖩 <span font_size='10pt'>{essid}</span>",
-    "format-ethernet": "󰌘 <span font_size='10pt'>{ipaddr}/{cidr}</span>",
-    "format-disconnected": "󰌙 <span font_size='10pt'>Disconnected</span>",
-    "on-click": "~/.config/waybar/scripts/wifi-connect.sh",
-    "max-length": 12,
+    "interface": "wlan0",
+    "max-length": 20,
+    "format": "<span color='#7aa2f7'>󰛵</span> <span font_size='10pt'>{ifname}</span>",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-wifi": "<span color='#7aa2f7'>󰖩</span> <span font_size='10pt'>{essid}</span>",
+    "format-ethernet": "<span color='#7aa2f7'>󰌘</span> <span font_size='10pt'>{ipaddr}/{cidr}</span>",
+    "format-disconnected": "<span color='#7aa2f7'>󰌙</span> <span font_size='10pt'>Disconnected</span>",
     "tooltip-format": "{ifname}",
     "tooltip-format-wifi": "{essid} ({signaldBm} dBm)\t{ipaddr}/{cidr}",
     "tooltip-format-disconnected": "Disconnected"
@@ -98,10 +98,10 @@
   },
   "battery": {
     "interval": 1,
-    "format": "{icon} <span font_size='10pt'>{capacity}%</span>",
+    "format": "<span color='#7aa2f7'>{icon}</span> <span font_size='10pt'>{capacity}%</span>",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-plugged": "󰚥 <span font_size='10pt'>{capacity}%</span>",
-    "format-charging": "󰂄 <span font_size='10pt'>{capacity}%</span>",
+    "format-plugged": "<span color='#7aa2f7'>󰚥</span> <span font_size='10pt'>{capacity}%</span>",
+    "format-charging": "<span color='#7aa2f7'></span> <span font_size='10pt'>{capacity}%</span>",
     "tooltip": false
   }
 }

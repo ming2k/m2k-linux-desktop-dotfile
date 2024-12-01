@@ -135,3 +135,4 @@ endfunction
 -- Set up the key mapping
 vim.api.nvim_set_keymap('n', '<Leader>t', ':lua OpenNamedTerminal()<CR>', {noremap = true, silent = true})
 
+vim.opt.background = 'light'

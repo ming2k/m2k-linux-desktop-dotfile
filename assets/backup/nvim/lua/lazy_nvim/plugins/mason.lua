@@ -37,21 +37,20 @@ return {
     mason_registry.refresh(function()
       -- lsp
       install('lua-language-server')
-      install("clangd")
-      install('rust-analyzer')
-      install("gopls")
-      install('pyright')
-      install("html-lsp")
-      install("css-lsp")
-      install('stylelint-lsp') -- css lint lsp
-      install("typescript-language-server") -- JS/TS lsp
-      install("eslint-lsp")
-      install('json-lsp')
-      install("yaml-language-server")
-      install('sqlls')
-      install('efm')
-      -- formatter
-      install('prettier')
+      -- install("clangd")
+      -- install('pyright')
+      -- install('rust-analyzer')
+      -- install("gopls")
+      -- install("html-lsp")
+      -- install("css-lsp")
+      -- install('stylelint-lsp') -- css lint lsp
+      -- install("typescript-language-server") -- JS/TS lsp
+      -- install("eslint-lsp")
+      -- install('json-lsp')
+      -- install("yaml-language-server")
+      -- install('sqlls')
+      -- install('efm')
+      -- install('prettier')
     end) -- refresh mason registry list
 
     require("lsp")

@@ -54,9 +54,9 @@ bar {
 ########
 # Exec #
 ########
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+# exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec mako
 exec ~/.config/sway/scripts/swayidle.sh
-exec fcitx5 -d -r
-# exec copyq --start-server
+# exec ~/.config/sway/scripts/theme-watch.sh
+# exec fcitx5 -d -r
 

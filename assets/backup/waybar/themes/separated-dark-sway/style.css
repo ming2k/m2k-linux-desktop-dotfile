@@ -1,0 +1,124 @@
+/* style.css */
+* {
+    border: none;
+    font-family: "Noto Sans", "Symbols Nerd Font", "JetBrainsMono Nerd Font Propo";
+    font-size: 14px;
+    min-height: 14px;
+}
+/* Tokyo Night Colors - matched with Sway config */
+@define-color bg #1a1b26;            
+@define-color bg-dark #20222c;       
+@define-color surface-bright #292c3c;
+@define-color fg-dark #7f849c;       
+@define-color fg #a9b1d6;            
+@define-color fg-bright #c0caf5;     
+@define-color blue #7aa2f7;          
+@define-color cyan #7dcfff;          
+@define-color red #f7768e;           
+@define-color purple #bb9af7;        
+@define-color green #9ece6a;         
+
+window#waybar {
+    background: transparent;
+}
+
+window#waybar.empty #window {
+    opacity: 0;
+}
+
+/* Original workspace style */
+#workspaces button {
+    padding: 0px;
+    min-width: 40px;
+    color: @fg-dark;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.focused {
+    padding: 0px;
+    min-height: 12px;
+    color: @blue;
+    background: alpha(@surface-bright, 0.2);
+    border-bottom: 2px solid @blue;
+}
+
+#workspaces button.empty {
+    padding: 0px;
+    min-height: 12px;
+    color: @fg-dark;
+    opacity: 0.5;
+}
+
+#workspaces button.empty.focused {
+    color: @blue;
+    opacity: 0.7;
+    border-bottom: 2px solid @blue;
+}
+
+#workspaces button.urgent {
+    padding: 0px;
+    min-height: 12px;
+    color: @red;
+    background: alpha(@red, 0.2);
+    border-bottom: 2px solid @red;
+}
+
+#clock {
+    margin-right: 0;
+    font-family: 'Rubik';
+    color: @fg;
+}
+
+/* Framework style */
+#workspaces,
+#mode,
+#window,
+#clock,
+#tray,
+#backlight,
+#wireplumber,
+#bluetooth,
+#network,
+#battery,
+#idle_inhibitor {
+    border-radius: 8px;
+    background: alpha(@bg, 0.85);
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 15px;
+    font-size: 16px;
+    min-height: 32px;
+    min-width: 22px;
+    color: @fg;
+}
+
+/* Keep the broken-right compose look for all modules */
+#wireplumber,
+#bluetooth,
+#network,
+#battery {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-left: 5px;
+}
+
+#backlight,
+#wireplumber,
+#bluetooth,
+#network {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 5px;
+    margin-right: 0;
+}
+
+/* Edge elements */
+#workspaces {
+    margin-left: 2px;
+}
+
+#idle_inhibitor {
+    margin-right: 2px;
+}
+
